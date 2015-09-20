@@ -1,0 +1,110 @@
+Version: 1.0
+Date: 6/10/2015
+
+Features:
+1. Local Notification
+2. Screen Shot and Share Image
+3. Share Text
+4. Immersive mode
+5. Voice Audio Recorder with modify pitch option
+6. Google Search App Indexing
+7. GPS 1.0
+8. Get Android Package Id at run time
+9. Get Android Version at run time.
+10.Get Battery Life percentage 1.0
+11.Flashlight
+12.Nomal Vibration
+13.Vibration with pattern
+14.Native Loading UI
+15.Native Rate my app popup
+16.Native Alert Popup
+17.Native Toast Message
+
+
+Version: 1.1
+Date: 6/28/2015
+
+New Features:
+1. Speech to Text
+2. Text To Speech
+3. GPS (Improved)
+4. Get Battery Life Percentage (Improved)
+
+Version: 1.2
+Date: 7/10/2015
+
+New Features:
+1. Bluetooth communication + tictactoe example
+
+Version: 1.3
+Date: 7/12/2015
+
+Changes:
+Remove GameObject requirements for recieving events (via gameobject)
+Replace by Callback for Recieving events (via code)
+
+Features using this new callback events
+
+1. Bluetooth
+2. GPS
+3. Battery
+4. Speech Recognizer
+
+you can now select specific features to use unlike before that everything is in one place.
+
+Features that is standalone
+
+1. Bluetooth
+2. Battery
+3. Audio recorder
+4. Flashlight
+5. Vibrator
+6. GPS
+
+Version: 1.3.1
+Date: 7/16/2015
+
+make other major features to be independent from main plugin, you can now used specific
+features without adding other permission to manifest even if your not going to use them 
+but make sure to add permission which you really used for example vibrator don't forget to
+add vibrator permission.
+
+1. VibratorPlugin
+2. AudioRecorderPlugin
+3. BluetoothPlugin
+4. FlashlightPlugin
+5. GPSPlugin
+
+Version: 1.3.2
+Date: 7/18/2015
+
+added more independent Plugin
+
+1. SpeechPlugin
+
+Version: 1.3.3
+Date: 7/25/2015
+
+1. Set One Time Alarm
+2. Set Repeating Alarm
+3. Set Alarm with Interval
+
+Version: 1.3.4
+Date: 7/28/2015
+
+1. Camera - Take Picture using camera and then share it on social applications
+
+Version: 1.3.5
+Date: 7/31/2015
+
+1. Image Picker - get image from device and then share it on social applications
+2. Get Existing Texture from unity3d and then share it on social applications
+
+Version: 1.3.6
+Date: 8/01/2015
+
+1. Get Android ID
+2. Get Telephony Device ID
+3. Get Telephony Sim Serial Number
+4. Get Android advertising ID
+5. Generate Unique ID

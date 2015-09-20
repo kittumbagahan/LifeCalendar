@@ -1,0 +1,61 @@
+an  Android Plugin for Unity3d that will help you access features on Android devices with in unity3d.<br><br>
+
+This plugin will speeds up your work and saves a lot of time compare on creating your own plugin which requires learning, researching, coding and testing on how to make things work.<br><br>
+
+List of Features:<br><br>
+
+1. Local Notification<br>
+2. Screen shot and Share Image<br>
+3. Share Text<br>
+4. Bluetooth communication<br>
+5. GPS<br>
+6. Speech To Text<br>
+7. Text To Speech<br>
+8. Immersive mode<br>
+9. Voice audio recorder with modify pitch<br>
+10.Google search app indexing<br>
+11.Get Android package id at runtime<br>
+12.Get Android version at runtime<br>
+13.Get Battery life percentage<br>
+14.Flashlight<br>
+15.Normal vibration<br>
+16.Vibration with pattern<br>
+17.Native loading ui<br>
+18.Native Rate my app popup<br>
+19.Native Alert popup<br>
+20.Native Toast message<br><br>
+
+New Features<br><br>
+
+21.Set One Time Alarm<br>
+22.Set Repeating Alarm<br>
+23.Set Alarm with Interval<br>
+24.Camera - Take Picture using camera and then share<br>
+25.Image Picker - get image from device and then share<br>
+26.Get Existing Texture from unity3d and then share<br>
+27. Get Android ID<br>
+28. Get Telephony Device ID<br>
+29. Get Telephony Sim Serial Number<br>
+30. Get Android advertising ID<br>
+31. Generate Unique ID<br><br>
+
+and more features to be added in the future<br><br>
+
+Note: Does not extend UnityPlayerActivity<br><br>
+
+this is a Super Value Deal, Grab a copy now<br>
+lots of features in affordable price<br><br>
+
+For more informations:<br><br>
+
+<p><a href="http://www.gigadrillgames.com/android-ultimate-plugin/">http://www.gigadrillgames.com/android-ultimate-plugin/</a><br><br>
+
+For Tutorials:<br><br>
+
+<p><a href="http://www.gigadrillgames.com/2015/07/26/list-of-tutorials-for-android-ultimate-plugin/">http://www.gigadrillgames.com/2015/07/26/list-of-tutorials-for-android-ultimate-plugin/</a><br><br>
+
+Frequently Asked Questions:<br><br>
+
+<p><a href="http://www.gigadrillgames.com/2015/07/29/faq-android-ultimate-plugin/">http://www.gigadrillgames.com/2015/07/29/faq-android-ultimate-plugin/</a><br><br>
+
+For questions or suggestions or any feedback just contact us by email <a href="mailto:gigadrillgames@gmail.com">gigadrillgames@gmail.com</a><br>
