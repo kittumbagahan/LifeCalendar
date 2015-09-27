@@ -104,7 +104,8 @@ public class SetEvent : MonoBehaviour {
             datePanel.transform.GetChild(childStart + i).GetComponentInChildren<Text>().color = new Color32(0, 0, 0, 255);
 
             //Check holiday date
-            Holiday.holidayInstance.SetHoliday(datePanel.transform.GetChild(childStart + i), month, i + 1);
+            //Holiday.holidayInstance.SetHoliday(datePanel.transform.GetChild(childStart + i), month, i + 1);
+            GetComponent<Holiday>().SetHoliday(datePanel.transform.GetChild(childStart + i), month, i + 1);
 
             if (month == DateTime.Now.Month && year == DateTime.Now.Year && DateTime.Now.Day == i + 1)
             {                
