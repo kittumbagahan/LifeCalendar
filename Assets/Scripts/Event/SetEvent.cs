@@ -224,9 +224,10 @@ public class SetEvent : MonoBehaviour {
         List<string> existingEventList = new List<string>();        
         string eventList;
 
-        string field = Year + "#" + Month + "#" + date;         
+        //string field = Year + "#" + Month + "#" + date;
+        string field = "event";
 
-        if(PlayerPrefs.HasKey(field))
+        if (PlayerPrefs.HasKey(field))
         {
             eventList = PlayerPrefs.GetString(field);
             eventList = eventList.Remove(eventList.Length - 1);

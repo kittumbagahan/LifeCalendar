@@ -60,6 +60,11 @@ public class EventValues : MonoBehaviour
         SetEvent.setEventInstance.ToggleSetEvent();
     }
 
+    public void Title()
+    {
+        Application.LoadLevel(0);
+    }
+
     public void ToggleEventDescription(string desc = "")
     {                
         print(eventDescription);
@@ -96,22 +101,33 @@ public class EventValues : MonoBehaviour
         print("INSERT INTO EventListTbl (Year, Month, Date, Description, Title, Time) VALUES ('" + this.year + "', '" + this.month + "', '" + this.date + "', '" + eventDescription + "', '" + EventTitle.GetComponent<InputField>().text +
             "', '" + theHour + ":" + theMin.ToString("00") + amPm + "')");
 
-        currentEvenList.Add("Description: " + eventDescription + "@Title: " + EventTitle.GetComponent<InputField>().text + "@Time: " + theHour + ":" + theMin.ToString("00") + amPm);
+        currentEvenList.Add(new DateTime(this.year,this.month,this.date).ToString("MMMM d, yyyy") + "@Description: " + eventDescription + "@Title: " + EventTitle.GetComponent<InputField>().text + "@Time: " + theHour + ":" + theMin.ToString("00") + amPm);
 
         if (!isAM)
             theHour += 12;
         
         print("Hour: " + theHour + ", Min: " + theMin + " " + amPm);        
 
-        alarmPlugin.SetOneTimeAlarm(theHour, theMin, EventTitle.GetComponent<InputField>().text, eventDescription, EventTitle.GetComponent<InputField>().text);
+        //alarmPlugin.SetOneTimeAlarm(theHour, theMin, EventTitle.GetComponent<InputField>().text, eventDescription, EventTitle.GetComponent<InputField>().text);
              
         string eventString = null;
         for (int i = 0; i < currentEvenList.Count; i++)
         {
             eventString += currentEvenList[i] + "^";
         }
-        
-        PlayerPrefs.SetString(this.year + "#" + this.month + "#" + this.date, eventString);
+
+        if (!PlayerPrefs.HasKey("event"))
+        {
+            PlayerPrefs.SetString("event", eventString);
+        }
+        else
+        {
+            string existingEventString = PlayerPrefs.GetString("event") + eventString;
+            PlayerPrefs.SetString("event", existingEventString);
+        }
+
+        //PlayerPrefs.SetString("event", eventString);
+        print(eventString);
         currentEvenList.Clear();
         CancelEvent();
     }

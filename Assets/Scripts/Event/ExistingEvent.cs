@@ -9,9 +9,13 @@ public class ExistingEvent : MonoBehaviour {
     
     [SerializeField] GameObject parent;
 
+    List<string> eventList;
+
 	// Use this for initialization
 	void Start () {
         existingEventInstance = this;
+        eventList = new List<string>();
+        GetEventList();
 	}
 	
 	// Update is called once per frame
@@ -19,39 +23,102 @@ public class ExistingEvent : MonoBehaviour {
 	
 	}
 
-    public void FillEventList(List<string> eventList)
+    string eventString;
+
+    void GetEventList()
     {
-        if (eventList.Count == 0)
+        if(!PlayerPrefs.HasKey("event"))
+        {
             return;
-    
+        }
+
+        eventString = PlayerPrefs.GetString("event");
+        eventString = eventString.Remove(eventString.Length - 1);
+        eventList.AddRange(eventString.Split('^'));
+
         for (int i = 0; i < eventList.Count; i++)
         {
             GameObject theEvent;
             theEvent = GameObject.Instantiate(Resources.Load("Prefabs/EventItem") as GameObject);
             theEvent.transform.SetParent(parent.transform);
-            theEvent.transform.GetChild(0).GetComponent<Text>().text = eventList[i].Replace("@", "\n");            
+            theEvent.transform.GetChild(0).GetComponent<Text>().text = eventList[i].Replace("@", "\n");
         }
     }
 
-    void OnEnable()
+    public void DeleteEvent()
     {        
-        if (SetEvent.setEventInstance._ExistingEvent().Count == 0)
-            print("no record!");
+        for (int i = 0; i < parent.transform.childCount; i++)// destroy gameobject
+        {            
+            if (parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn == true)
+            {
+                Destroy(parent.transform.GetChild(i).gameObject);
+            }
+        }
+
+        for (int i = parent.transform.childCount - 1; i > -1; i--)// delete in list
+        {
+            if (parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn == true)
+            {
+                print(eventList[i]);
+                eventList.RemoveAt(i);
+            }
+        }
+
+        Save();
+    }
+
+    void Save()
+    {
+        string eventString = "";
+
+        for (int i = 0; i < eventList.Count; i++)
+        {
+            eventString += eventList[i] + "^";
+        }
+
+        if (eventString == "")
+        {
+            eventList.Clear();
+            PlayerPrefs.DeleteKey("event");
+        }
         else
         {
-            print("exist!");
-            EventValues.evenValuesInstance.EventListSetActive(true);
-            FillEventList(SetEvent.setEventInstance._ExistingEvent());
-        }         
-    }
-
-    void OnDisable()
-    {
-        for (int i = 0; i < parent.transform.childCount; i++)
-        {
-            DestroyObject(parent.transform.GetChild(i).gameObject);
+            PlayerPrefs.SetString("event", eventString);
         }
-        EventValues.evenValuesInstance.ClearTitle();
-        EventValues.evenValuesInstance.EventListSetActive(false);        
     }
+    //public void FillEventList(List<string> eventList)
+    //{
+    //    if (eventList.Count == 0)
+    //        return;
+    
+    //    for (int i = 0; i < eventList.Count; i++)
+    //    {
+    //        GameObject theEvent;
+    //        theEvent = GameObject.Instantiate(Resources.Load("Prefabs/EventItem") as GameObject);
+    //        theEvent.transform.SetParent(parent.transform);
+    //        theEvent.transform.GetChild(0).GetComponent<Text>().text = eventList[i].Replace("@", "\n");            
+    //    }
+    //}
+
+    //void OnEnable()
+    //{        
+    //    if (SetEvent.setEventInstance._ExistingEvent().Count == 0)
+    //        print("no record!");
+    //    else
+    //    {
+    //        print("exist!");
+    //        EventValues.evenValuesInstance.EventListSetActive(true);
+    //        FillEventList(SetEvent.setEventInstance._ExistingEvent());
+    //    }         
+    //}
+
+    //void OnDisable()
+    //{
+    //    for (int i = 0; i < parent.transform.childCount; i++)
+    //    {
+    //        DestroyObject(parent.transform.GetChild(i).gameObject);
+    //    }
+    //    EventValues.evenValuesInstance.ClearTitle();
+    //    EventValues.evenValuesInstance.EventListSetActive(false);        
+    //}
 }

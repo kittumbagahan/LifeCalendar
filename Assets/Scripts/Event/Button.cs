@@ -4,10 +4,11 @@ using System.Collections;
 public class Button : MonoBehaviour {
 
 	//[SerializeField]
-	public enum LEVELNAME {SET, AUGMENT, CLOSE};
+	public enum LEVELNAME {SET, AUGMENT, CLOSE, EVENTLIST};
 	public LEVELNAME levelName;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
