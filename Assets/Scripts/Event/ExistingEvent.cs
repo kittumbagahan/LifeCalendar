@@ -8,6 +8,7 @@ public class ExistingEvent : MonoBehaviour {
     public static ExistingEvent existingEventInstance;
     
     [SerializeField] GameObject parent;
+    [SerializeField] Toggle toggleAll;
 
     List<string> eventList;
 
@@ -85,6 +86,41 @@ public class ExistingEvent : MonoBehaviour {
         {
             PlayerPrefs.SetString("event", eventString);
         }
+    }
+
+    public void ToggleAll()
+    {
+        if(toggleAll.isOn == true)
+        {
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn = true;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn = false;
+            }
+        }
+    }
+
+    public void CheckToggle()
+    {
+        print(parent.transform.childCount);
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            print(parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn);
+            if(parent.transform.GetChild(i).GetComponent<EventItem>().checkBox.isOn == false)
+            {
+                toggleAll.isOn = false;
+                break;
+            }                 
+        }
+
+        toggleAll.isOn = true;
+
     }
     //public void FillEventList(List<string> eventList)
     //{
